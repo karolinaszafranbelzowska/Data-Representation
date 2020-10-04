@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Library>
+	<Technical_Books>
+		<book>
+			<Title>The Manager's Path</Title>
+			<ISBN>9781491973899</ISBN>
+			<Author>Camille Founier</Author>
+		</book>
+		
+		<book>
+			<Title>Digital Holographic Data Representation and Compression</Title>
+			<ISBN>9780128028544</ISBN>
+			<Author> Yafei Xing,Mounir Kaaniche,Beatrice Pesquet-Popescu,Frederic Dufaux</Author>
+		</book>
+		
+	</Technical_Books>
+	
+	<Cookery_Books>
+		<book>
+			<Title>Good Housekeeping Cookery Book</Title>
+			<ISBN>9781909397859</ISBN>
+			<Author>Good Housekeeping Institute</Author>
+		</book>
+		
+		<book>
+			<Title>Baking Bible</Title>
+			<ISBN>9781846077852</ISBN>
+			<Author>Mary Berry</Author>
+		</book>
+	
+	</Cookery_Books>
+
+</Library>
+	
+	
+			
+	
