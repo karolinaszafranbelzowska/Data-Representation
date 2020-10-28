@@ -38,7 +38,7 @@ with  open('train.csv', mode='w') as train_file:
         # or
         # print(listing.find('TrainLatitude').string)
         lat = float( listing.TrainLatitude.string) # I am going to store trains that are South of Dublin
-        if (lat < 53.4):
+        if (lat < 53.4): # Approx. 53.4
 
 
             entryList = []
