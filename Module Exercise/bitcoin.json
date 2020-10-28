@@ -1,0 +1,36 @@
+// Exercise: Extract the Ero price for Bitcoin on a webpage
+// https://api.coindesk.com/v1/bpi/currentprice.json
+
+{
+    "time":
+    {
+        "updated":"Oct 28, 2020 18:46:00 UTC",
+        "updatedISO":"2020-10-28T18:46:00+00:00",
+        "updateduk":"Oct 28, 2020 at 18:46 GMT"
+    },
+        "disclaimer":"This data was produced from the CoinDesk Bitcoin Price Index (USD). Non-USD currency data converted using hourly conversion rate from openexchangerates.org",
+        "chartName":"Bitcoin",
+        "bpi":{
+            "USD":{
+                "code":"USD",
+                "symbol":"&#36;",
+                "rate":"13,207.5033",
+                "description":"United States Dollar",
+                "rate_float":13207.5033
+            },
+            "GBP":{
+                "code":"GBP",
+                "symbol":"&pound;",
+                "rate":"10,167.5455",
+                "description":"British Pound Sterling",
+                "rate_float":10167.5455
+            },
+            "EUR":{
+                "code":"EUR",
+                "symbol":"&euro;",
+                "rate":"11,239.8495",
+                "description":"Euro",
+                "rate_float":11239.8495
+            }
+        }
+}
