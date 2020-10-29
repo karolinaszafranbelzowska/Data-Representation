@@ -1,0 +1,36 @@
+<!-- Write a web page that uses AJAX to read the JSON from the web https://apicoindesk.com/vl/bpi/currentprice.json-->
+
+
+<html>
+    <head>
+        <title>Lab 04 - Read a simple JSON</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+        </script>
+    </head>
+    <body>
+        <button onclick="readJSON()">Go</button>
+        <div id="output"></div>
+    </body>
+    <script>
+            function readJSON(){
+                $.ajax({
+                    "url": "https://api.coindesk.com/v1/bpi/currentprice.json",
+                    "method": "GET",
+                    "data": "",
+                    "dataType": "JSON",
+                    "success": function(result){
+                        // console.log(result);
+                        var rate = result.bpi.EUR.rate //EUR rate
+                        // var rate = result.bpi.GBP.rate
+                        // var rate = result.bpi.USD.rate
+                        console.log(rate); //print the result  in the console
+                        document.getElementById("output").innerText = rate;
+                        
+                    },
+                    "error": function(xhr,status,error){
+                        console.log("error: "+status+" msg:"+error);
+                    }
+                });
+            }
+    </script>
+</html>
