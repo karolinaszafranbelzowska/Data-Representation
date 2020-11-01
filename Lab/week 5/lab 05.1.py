@@ -1,8 +1,9 @@
 # Question 1
 # Test to see if CURL is working from my command line
 
-C:\Users\karolina
+
 λ curl google.com
+
 <HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
 <TITLE>301 Moved</TITLE></HEAD><BODY>
 <H1>301 Moved</H1>
@@ -14,8 +15,9 @@ The document has moved
 # Question 2
 # Check -i option
 
-C:\Users\karolina
+
 λ curl -i google.com
+
 HTTP/1.1 301 Moved Permanently
 Location: http://www.google.com/
 Content-Type: text/html; charset=UTF-8
@@ -39,8 +41,9 @@ The document has moved
 # Look at http://andrewbeatty.pythonanywhere.com/
 # How would I get all books?
 
-C:\Users\karolina
+
 λ curl http://andrewbeatty1.pythonanywhere.com/books
+
 [{"Author":"34","Price":34,"Title":"34","id":10},
 {"Author":"234","Price":214,"Title":"ee'234'","id":11},
 {"Author":"FA","Price":4000,"Title":"myBook","id":12},
@@ -60,8 +63,9 @@ C:\Users\karolina
 # Look at http://andrewbeatty.pythonanywhere.com/
 # How would I get all the book with id 9?
 
-C:\Users\karolina
+
 λ curl http://andrewbeatty1.pythonanywhere.com/books/9
+
 {}
 
 
@@ -72,8 +76,9 @@ C:\Users\karolina
 # Windows (windows only has “ (no ‘) so the data needs to be between “ “ and all the
 # inverted commas in the JSON need to be escaped \”. 
 
-C:\Users\karolina
+
 λ curl -i -H "Content-Type:application/json" -X POST -d "{\"Title\":\"The Shadow of the Wind\",\"Author\":\"Carlos Zafon\",\"Price\":599}" http://andrewbeatty1.pythonanywhere.com/books
+
 HTTP/1.1 200 OK
 Date: Sun, 01 Nov 2020 17:06:51 GMT
 Content-Type: application/json
@@ -89,8 +94,9 @@ Server: PythonAnywhere
 # Question 5
 # For the same website how would you use curl to update a book (use your book)
 
-C:\Users\karolina
+
 λ curl -i -H "Content-Type:application/json" -X PUT -d "{\"Price\":29900}" http://andrewbeatty1.pythonanywhere.com/books/65
+
 HTTP/1.1 200 OK
 Date: Sun, 01 Nov 2020 17:10:43 GMT
 Content-Type: application/json
@@ -106,7 +112,8 @@ Server: PythonAnywhere
 # Question 6
 # For the same web site how would you use curl to delete the book you just made.
 
-C:\Users\karolina
+
 λ curl -X DELETE http://andrewbeatty1.pythonanywhere.com/books/65
+
 {"done":true}
 
