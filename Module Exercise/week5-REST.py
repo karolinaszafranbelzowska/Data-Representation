@@ -1,4 +1,4 @@
-#! Server Static Content
+# Server Static Content
 # FLASK
 
 #! flask/bin/python
