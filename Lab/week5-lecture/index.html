@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Just testing server</title>
+    </head>
+    <body>
+        <h1>Just testing html</h1>
+        <div id ="output">
+            Output Here
+        </div>
+
+        <script>
+            for (var i=0; i<10; i++){
+                console.log(i)
+            }
+            var names = ['Karolina']
+            var output = ''
+            for (name of names) {
+                output += name + '<br/>'
+            }
+            document.getElementById("output").innerHTML = output
+        </script>
+    </body>
+</html>
