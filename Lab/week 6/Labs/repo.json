@@ -1,0 +1,4 @@
+{
+    "message": "Bad credentials. The API can't be accessed using username/password authentication. Please create a personal access token to access this endpoint: http://github.com/settings/tokens",
+    "documentation_url": "https://docs.github.com/articles/creating-a-personal-access-token-for-the-command-line"
+}
