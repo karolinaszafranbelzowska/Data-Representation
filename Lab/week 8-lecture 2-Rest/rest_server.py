@@ -15,23 +15,57 @@ def index():
 
 @app.route('/books')
 def getAll():
-    return"Served by getAll!"
+    return jsonify(books)
 
 @app.route('/books/<int:id>')
 def findById(id):
-    return"Served by findById with it!" + str(id)
-
+    foundBooks = list(filter (lambda t : t["id"] == id, books))
+    if len(foundBooks) == 0:
+        return jsonify({}) , 204
+    return jsonify(foundBooks[0])
+    
 @app.route('/books',methods=['POST'])
 def create():
-    return"Served by Create" 
+    global nextid
+    if not request.json:
+        abort(400)
+    
+    book = {
+        "id": nextid,
+        "Title": request.json["Title"],
+        "Author": request.json["Author"],
+        "Price": request.json["Price"]
+    }
+    books.append(book)
+    nextid += 1
+    return jsonify(book)
+
+    # return"Served by Create" 
 
 @app.route('/books/<int:id>', methods=["PUT"])
 def update(id):
-    return"Served by update with it " + str(id)
+    foundBooks = list(filter(lambda t: t["id"] == id, books))
+    if len(foundBooks) == 0:
+        return jsonify({}), 404
+    currentBook = foundBooks[0]
+    if 'Title' in request.json:
+        currentBook['Title'] = request.json['Title']
+    if 'Author' in request.json:
+        currentBook['Author'] = request.json['Author']
+    if 'Price' in request.json:
+        currentBook['Price'] = request.json['Price']
+
+    return jsonify(currentBook)
 
 @app.route('/books/<int:id>', methods=['DELETE'])
 def delete(id):
-    return"Served by delete with it " + str(id)
+    foundBooks = list(filter(lambda t: t["id"] == id, books))
+    if len(foundBooks) == 0:
+        return jsonify({}), 404
+    books.remove(foundBooks[0])
+    
+    return jsonify({"done":True})
+    
 
 if __name__ == "__main__":
     print("in if")
