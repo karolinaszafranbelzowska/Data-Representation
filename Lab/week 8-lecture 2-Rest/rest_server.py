@@ -2,6 +2,7 @@ from flask import Flask, url_for, request, redirect, abort, jsonify
 
 app = Flask(__name__)
 
+# curl http://127.0.0.1:5000/books
 books = [
     {"id":1, "Title":"Harry Poter", "Author":"JKR", "Price":1000},
     {"id":2, "Title":"The Twilight Saga", "Author":"Stephenie Meyer", "Price":2000},
@@ -23,12 +24,15 @@ def findById(id):
     if len(foundBooks) == 0:
         return jsonify({}) , 204
     return jsonify(foundBooks[0])
-    
+
+# create
+# curl -X POST -d "{\"Title\":\"test\", \"Author\":\"some guy\", \"Price\":123}" http://127.0.0.1:5000/books   
 @app.route('/books',methods=['POST'])
 def create():
     global nextid
     if not request.json:
         abort(400)
+        # curl -X POST -H "content-type:application/json" -d "{\"Title\":\"test\", \"Price\":999}" http://127.0.0.1:5000/books
     
     book = {
         "id": nextid,
@@ -40,8 +44,9 @@ def create():
     nextid += 1
     return jsonify(book)
 
-    # return"Served by Create" 
 
+# update
+# curl -X PUT -d "{\"Title\":\"new title\",\"Price\":999}" -H "content-type:application/json" http://127.0.0.1:5000/books/1
 @app.route('/books/<int:id>', methods=["PUT"])
 def update(id):
     foundBooks = list(filter(lambda t: t["id"] == id, books))
@@ -57,6 +62,7 @@ def update(id):
 
     return jsonify(currentBook)
 
+
 @app.route('/books/<int:id>', methods=['DELETE'])
 def delete(id):
     foundBooks = list(filter(lambda t: t["id"] == id, books))
@@ -65,6 +71,8 @@ def delete(id):
     books.remove(foundBooks[0])
     
     return jsonify({"done":True})
+# curl -X DELETE http://127.0.0.1:5000/books/1
+# curl http://127.0.0.1:5000/books
     
 
 if __name__ == "__main__":
